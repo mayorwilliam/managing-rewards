@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  HelloWorldFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: hello_world/
+      Handler: app.get_rewards
+      Runtime: python3.8
+      Events:
+        GetRewardsApi:
+          Type: Api
+          Properties:
+            Path: /api/rewards
+            Method: GET
+  LoginFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: hello_world/
+      Handler: app.login
+      Runtime: python3.8
+      Events:
+        LoginApi:
+          Type: Api
+          Properties:
+            Path: /api/login
+            Method: POST
